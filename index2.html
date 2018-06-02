@@ -168,7 +168,7 @@ h1 {
 	<script>
 		"use strict";
 		
-		var dappAddress = "n1xB4Jm41qGPEh2cfaB1BjLJqtAfKBS2fAv";
+		var dappAddress = "n1jDzqzQRDfoSUNAqwNXgSvrWAJptzEh3dX";
 		//here we use neb.js to call the "get" function to search from the Dictionary
 		var nebulas = require("nebulas"),
 			Account = nebulas.Account,
@@ -176,21 +176,21 @@ h1 {
 		neb.setRequest(new nebulas.HttpRequest("https://testnet.nebulas.io"));		
 	
 		document.addEventListener("DOMContentLoaded", function () {
-            console.log("web page loaded...")
-            setTimeout(checkNebpay, 1000);
-        });
-        function checkNebpay() {
-            console.log("check nebpay")
-            try {
-                var NebPay = require("nebpay");
-                console.log(`nebPay installed great`);
-            } catch (e) {
-                console.log(e);
-                if (window.confirm('You dont have the Chrome web wallet extension installed to use this Dapp click Confirm to download now ')) {
-                    window.location.href = 'https://github.com/ChengOrangeJu/WebExtensionWallet';
-                }
-            }
-        }	
+		    console.log("web page loaded...")
+		    setTimeout(checkNebpay, 1000);
+		});
+		function checkNebpay() {
+		    console.log("check nebpay")
+		    try {
+			var NebPay = require("nebpay");
+			console.log(`nebPay installed great`);
+		    } catch (e) {
+			console.log(e);
+			if (window.confirm('You dont have the Chrome web wallet extension installed to use this Dapp click Confirm to download now ')) {
+			    window.location.href = 'https://github.com/ChengOrangeJu/WebExtensionWallet';
+			}
+		    }
+		}	
 		
 		var NebPay = require("nebpay");     //https://github.com/nebulasio/nebPay
 		var nebPay = new NebPay();
@@ -214,6 +214,7 @@ h1 {
 				listener: cbPush,       //设置listener, 处理交易返回信息
 				callback: callbackUrl
 			});
+			alert(serialNumber);
 			intervalQuery = setInterval(function () {
 				funcIntervalQuery();
 			}, 10000);
