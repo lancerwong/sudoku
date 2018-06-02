@@ -175,30 +175,34 @@ h1 {
 			neb = new nebulas.Neb();
 		neb.setRequest(new nebulas.HttpRequest("https://testnet.nebulas.io"));		
 	
-		document.addEventListener("DOMContentLoaded", function () {
-		    console.log("web page loaded...")
-		    setTimeout(checkNebpay, 1000);
-		});
-		function checkNebpay() {
-		    console.log("check nebpay")
-		    try {
-			var NebPay = require("nebpay");
-			console.log(`nebPay installed great`);
-		    } catch (e) {
-			console.log(e);
-			if (window.confirm('You dont have the Chrome web wallet extension installed to use this Dapp click Confirm to download now ')) {
-			    window.location.href = 'https://github.com/ChengOrangeJu/WebExtensionWallet';
-			}
-		    }
-		}	
+		<!-- document.addEventListener("DOMContentLoaded", function () { -->
+            <!-- console.log("web page loaded...") -->
+            <!-- setTimeout(checkNebpay, 1000); -->
+        <!-- }); -->
+		
+		<!-- var callbackUrl; -->
+        <!-- function checkNebpay() { -->
+            <!-- console.log("check nebpay") -->
+            <!-- try { -->
+                <!-- var NebPay = require("nebpay"); -->
+				
+                <!-- console.log(`nebPay installed great`); -->
+            <!-- } catch (e) { -->
+                <!-- console.log(e); -->
+                <!-- if (window.confirm('You dont have the Chrome web wallet extension installed to use this Dapp click Confirm to download now ')) { -->
+                    <!-- window.location.href = 'https://github.com/ChengOrangeJu/WebExtensionWallet'; -->
+                <!-- } -->
+            <!-- } -->
+        <!-- }	 -->
 		
 		var NebPay = require("nebpay");     //https://github.com/nebulasio/nebPay
 		var nebPay = new NebPay();
 		var serialNumber;
 		//var callbackUrl = NebPay.config.mainnetUrl;   //如果合约在主网,则使用这个
-		//var callbackUrl = NebPay.config.testnetUrl;   //
-		var callbackUrl = "https://testnet.nebulas.io";
-		$("#btn_reg_store").click(function() {
+		var callbackUrl = NebPay.config.testnetUrl; 
+		//var callbackUrl = "https://testnet.nebulas.io";
+		$("#btn_reg_store").click(function(e) {
+			e.preventDefault();
 			var to = dappAddress;
 			var value = "0";
 			var callFunction = "save"
@@ -210,6 +214,7 @@ h1 {
 				arg5 = $("#txt_nric").val(),
 				arg6 = $("#txt_address").val();
 			var callArgs = JSON.stringify([arg1, arg2, arg3, arg4, arg5, arg6]);
+			alert(callArgs);
 			serialNumber = nebPay.call(to, value, callFunction, callArgs, {    //使用nebpay的call接口去调用合约,
 				listener: cbPush,       //设置listener, 处理交易返回信息
 				callback: callbackUrl
