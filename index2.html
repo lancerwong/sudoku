@@ -78,82 +78,115 @@ h1 {
 <div class="main-agileits">
 <!--form-stars-here-->
 		<div class="form-w3-agile">
-			<h2>NAS PDPS login</h2>
-			<form action="#" method="post">
+			<h2>NAS PDPS Access Portal</h2>
+			<form id="frm_retrieve" action="#" method="post">
+				<div class="result_failed" style="display:none; color: white; text-transform: none; text-align: center; margin-bottom: 20px; font-size: 20px; background: #ff0033; padding: 12px;">
+					Failed to query your NAS PDPS Data.
+				</div>					
+				<div class="result_success" style="display: none; color: white; background: #4cbe83 ; text-transform: none; text-align: center; padding: 10px; font-size: 20px; margin-bottom: 20px;">Success Storing your personal data</div> 
+				<div class="processing" style="display: none; color: black; background: aliceblue; text-transform: none; text-align: center; padding: 10px; font-size: 20px; margin-bottom: 20px; ">Processing your request now....</div>
 				<div class="form-sub-w3">
-					<input type="text" name="Username" placeholder="Email address " required="" />
+					<input type="text" id="txt_login_email" name="email" placeholder="Email address " required="" />
 				<div class="icon-w3">
 					<i class="fa fa-user" aria-hidden="true"></i>
 				</div>
 				</div>
 				<div class="form-sub-w3">
-					<input type="password" name="Password" placeholder="Password" required="" />
+					<input type="password" id="txt_login_pwd" name="pwd" placeholder="Password" required="" />
 				<div class="icon-w3">
 					<i class="fa fa-unlock-alt" aria-hidden="true"></i>
 				</div>
 				</div>
-				<p class="p-bottom-w3ls">Are you new to NAS PDPS?<a class="w3_play_icon1" href="#small-dialog1">  Register here</a></p>
+				<p class="p-bottom-w3ls">Are you new to NAS PDPS?<a class="w3_play_icon1" href="#small-dialog1">  Secure your data here</a></p>
 				
 				<div class="submit-w3l">
-					<input type="submit" value="Login">
+					<input id="btn_retrieve" type="submit" value="Login">
 				</div>
 			</form>
 		</div>
 <!--//form-ends-here-->
 </div>
+<div class="form-w3-agile pdps-data" style="margin: 0 auto; width: 70%; color: white; padding-top: 40px; display: none;">
+	<div class="contact-w3-agileits">
+		<h2>Your Personal NAS PDPS Data</h2>
+		<div class="form-sub-w3ls">
+			<label style="float: left; padding-left: 10px; width: 50%;">Email</label>
+			<label id="lbl_email" style="float: left; text-transform: none; width: 48%;"></label>
+		</div>
+		<div class="form-sub-w3ls" style="clear: both;">
+			<label style="float: left; padding-left: 10px; width: 50%;">Full Name</label>
+			<label id="lbl_name" style="float: left; text-transform: none; width: 48%;"></label>
+		</div>														
+		<div class="form-sub-w3ls" style="clear: both;">
+			<label style="float: left; padding-left: 10px; width: 50%;">Mobile Phone No</label>
+			<label id="lbl_mobile_phone" style="float: left; text-transform: none; width: 48%;"></label>
+		</div>												
+		<div class="form-sub-w3ls" style="clear: both;">
+			<label style="float: left; padding-left: 10px; width: 50%;">National Identity Number</label>
+			<label id="lbl_nric" style="float: left; text-transform: none; width: 48%;"></label>
+		</div>							
+		<div class="form-sub-w3ls" style="clear: both;">
+			<label style="float: left; padding-left: 10px; width: 50%;">Address</label>
+			<label id="lbl_address" style="float: left; text-transform: none; width: 48%;"></label>
+		</div>	
+		<div style="clear: both; text-align: center; margin-top: 50px; text-transform: none;">Want to query again? Click <a style="color: white; font-weight: bold;" id="btn_retrieve_again" href="#">HERE</a>
+	</div>
+</div>
 <div id="small-dialog1" class="mfp-hide">
-					<div class="contact-form1">
-										<div class="contact-w3-agileits">
-										<h3>NAS PDPS Registration</h3>
-											<form action="#" method="post">
-												<div class="form-sub-w3ls">
-													<input id="txt_email" placeholder="Email" class="mail" type="email" required="">
-													<div class="icon-agile">
-														<i class="fa fa-envelope-o" aria-hidden="true"></i>
-													</div>
-												</div>
-												<div class="form-sub-w3ls">
-													<input id="txt_password" placeholder="Password"  type="password" required="">
-													<div class="icon-agile">
-														<i class="fa fa-unlock-alt" aria-hidden="true"></i>
-													</div>
-												</div>
-												<div class="form-sub-w3ls">
-													<input id="txt_confirm_password" placeholder="Confirm Password"  type="password" required="">
-													<div class="icon-agile">
-														<i class="fa fa-unlock-alt" aria-hidden="true"></i>
-													</div>
-												</div>
-												<h2 style="color: white; margin-bottom: 20px;">Optional field for data storage</h2>
-												<div class="form-sub-w3ls">
-													<label style="float: left; padding-left: 10px;">Full Name</label>
-													<input id="txt_name" placeholder="Your full name"  type="text">
-												</div>														
-												<div class="form-sub-w3ls">
-													<label style="float: left; padding-left: 10px;">Mobile Phone No</label>
-													<input id="txt_mobile" placeholder="Your mobile phone no"  type="text">
-												</div>												
-												<div class="form-sub-w3ls">
-													<label style="float: left; padding-left: 10px;">National Identity Number</label>
-													<input id="txt_nric" placeholder="Your Identity Card No."  type="text">
-												</div>							
-												<div class="form-sub-w3ls">
-													<label style="float: left; padding-left: 10px;">Address</label>
-													<input id="txt_address" placeholder="Your full address"  type="text">
-												</div>	
-											</div>
-											<!--<div class="login-check">
-								 			 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><p>I Accept Terms & Conditions</p></label>
-											</div>-->
-										<div class="submit-w3l">
-											<button id="btn_reg_store">Register & Store</button>
-										</div>
-										</form>
+	<div class="contact-form1">
+		<div class="contact-w3-agileits">
+			<h3>NAS PDPS Data Secure & Store Station</h3>								
+				<form id="frm_store" action="#" method="post">
+					<div class="form-sub-w3ls">
+						<input id="txt_email" placeholder="Email" class="mail" type="email" required="">
+						<div class="icon-agile">
+							<i class="fa fa-envelope-o" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="form-sub-w3ls">
+						<input id="txt_password" placeholder="Password"  type="password" required="">
+						<div class="icon-agile">
+							<i class="fa fa-unlock-alt" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="form-sub-w3ls">
+						<input id="txt_confirm_password" placeholder="Confirm Password"  type="password" required="">
+						<div class="icon-agile">
+							<i class="fa fa-unlock-alt" aria-hidden="true"></i>
+						</div>
+					</div>
+					<h2 style="color: white; margin-bottom: 20px;">Optional field for data storage</h2>
+					<div class="form-sub-w3ls">
+						<label style="float: left; padding-left: 10px;">Full Name</label>
+						<input id="txt_name" placeholder="Your full name"  type="text">
+					</div>														
+					<div class="form-sub-w3ls">
+						<label style="float: left; padding-left: 10px;">Mobile Phone No</label>
+						<input id="txt_mobile" placeholder="Your mobile phone no"  type="text">
+					</div>												
+					<div class="form-sub-w3ls">
+						<label style="float: left; padding-left: 10px;">National Identity Number</label>
+						<input id="txt_nric" placeholder="Your Identity Card No."  type="text">
+					</div>							
+					<div class="form-sub-w3ls">
+						<label style="float: left; padding-left: 10px;">Address</label>
+						<input id="txt_address" placeholder="Your full address"  type="text">
 					</div>	
-				</div>
+
+				<!--<div class="login-check">
+				 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><p>I Accept Terms & Conditions</p></label>
+				</div>-->
+					<div class="submit-w3l">
+						<button id="btn_reg_store">Store</button>
+					</div>
+				</form>
+			</div>	
+		</div>
+	</div>
+</div>
 <!-- copyright -->
 	<div class="copyright w3-agile">
-		<p> © 2017 Credit Login / Register Form . All rights reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>
+		<p> © 2018 NAS PDPS System. All rights reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>
 	</div>
 	<!-- //copyright --> 
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
@@ -167,20 +200,91 @@ h1 {
 	<!--//pop-up-box -->
 	<script>
 		"use strict";
-		
+		var magnificPopup;
 		var dappAddress = "n1jDzqzQRDfoSUNAqwNXgSvrWAJptzEh3dX";
 		//here we use neb.js to call the "get" function to search from the Dictionary
 		var nebulas = require("nebulas"),
 			Account = nebulas.Account,
 			neb = new nebulas.Neb();
 		neb.setRequest(new nebulas.HttpRequest("https://testnet.nebulas.io"));		
+
+		$("#btn_retrieve").click(function(e){
+			// $("#search_value").val() 搜索框内的值
+			e.preventDefault();
+			var from = Account.NewAccount().getAddressString();
+			var value = "0";
+			var nonce = "0"
+			var gas_price = "1000000"
+			var gas_limit = "2000000"
+			var callFunction = "get";
+			var key = "salt" + $("#txt_login_email").val() + $("#txt_login_pwd").val();
+			var callArgs = JSON.stringify([key]);
+			var contract = {
+				"function": callFunction,
+				"args": callArgs
+			}
+			$(".result_success").hide();
+			$(".result_failed").hide();
+			$(".processing").show();
+			neb.api.call(from,dappAddress,value,nonce,gas_price,gas_limit,contract).then(function (resp) {
+				queryPDPSData(resp)
+			}).catch(function (err) {
+				//cbSearch(err)
+				console.log("error:" + err.message)
+			})
+		})
+		
+		$("#btn_retrieve_again").click(function(e) {
+			e.preventDefault();
+			$(".pdps-data").hide();
+			$(".main-agileits").show();	
+			$("#frm_retrieve")[0].reset();
+		});
+		
+		function queryPDPSData(resp) {
+			var result = resp.result    ////resp is an object, resp.result is a JSON string
+			console.log("return of rpc call: " + JSON.stringify(result))
+			var resultString = JSON.stringify(result);
+			$(".processing").hide();
+			if(resultString.search("key") !== -1){
+				result = JSON.parse(result);
+				$(".pdps-data").show();
+				$(".main-agileits").hide();
+				$("#lbl_email").text(result.email);
+				$("#lbl_name").text(result.full_name);
+				$("#lbl_mobile_phone").text(result.mobile_no);
+				$("#lbl_nric").text(result.nric);
+				$("#lbl_address").text(result.address);
+				<!-- $(".add_banner").addClass("hide"); -->
+				<!-- $(".result_faile").addClass("hide"); -->
+				<!-- $("#search_banner").text($("#search_value").val()) -->
+				<!-- $("#search_result").text(result.value) -->
+				<!-- $("#search_result_author").text(result.author) -->
+				<!-- $(".result_success").removeClass("hide"); -->
+			}
+			if(resultString.search('"null"') !== -1){	
+				$(".result_failed").show();
+				<!-- $(".add_banner").addClass("hide"); -->
+				<!-- $(".result_success").addClass("hide"); -->
+				<!-- $("#result_faile_add").text($("#search_value").val()) -->
+				<!-- $(".result_faile").removeClass("hide"); -->
+			}
+			if(resultString.search("error") !== -1){
+				<!-- $(".add_banner").addClass("hide"); -->
+				<!-- $(".result_faile").addClass("hide"); -->
+				<!-- $("#search_banner").text($("#search_value").val()) -->
+				<!-- $("#search_result").text(result) -->
+				<!-- $("#search_result_author").text("") -->
+				<!-- $(".result_success").removeClass("hide"); -->
+			}
+		}		
 	
 		<!-- document.addEventListener("DOMContentLoaded", function () { -->
             <!-- console.log("web page loaded...") -->
             <!-- setTimeout(checkNebpay, 1000); -->
         <!-- }); -->
 		
-		<!-- var callbackUrl; -->
+		<!-- <!-- var callbackUrl; --> -->
         <!-- function checkNebpay() { -->
             <!-- console.log("check nebpay") -->
             <!-- try { -->
@@ -214,12 +318,12 @@ h1 {
 				arg5 = $("#txt_nric").val(),
 				arg6 = $("#txt_address").val();
 			var callArgs = JSON.stringify([arg1, arg2, arg3, arg4, arg5, arg6]);
-			alert(callArgs);
+			//alert(callArgs);
 			serialNumber = nebPay.call(to, value, callFunction, callArgs, {    //使用nebpay的call接口去调用合约,
 				listener: cbPush,       //设置listener, 处理交易返回信息
 				callback: callbackUrl
 			});
-			alert(serialNumber);
+			//alert(serialNumber);
 			intervalQuery = setInterval(function () {
 				funcIntervalQuery();
 			}, 10000);
@@ -235,7 +339,10 @@ h1 {
 					var respObject = JSON.parse(resp)
 					if(respObject.code === 0){
 						clearInterval(intervalQuery);
-						alert(`set ${$("#txt_email").val()} succeed!`);
+						//alert('Storing data for ' + $("#txt_email").val() + ' succeed!');
+						$(".result_success").show();
+						$.magnificPopup.close(); 
+						$("#frm_store")[0].reset();
 					}
 				})
 				.catch(function (err) {
@@ -254,17 +361,18 @@ h1 {
 		}	
 	
 		$(document).ready(function() {
-		$('.w3_play_icon,.w3_play_icon1,.w3_play_icon2').magnificPopup({
-			type: 'inline',
-			fixedContentPos: false,
-			fixedBgPos: true,
-			overflowY: 'auto',
-			closeBtnInside: true,
-			preloader: false,
-			midClick: true,
-			removalDelay: 300,
-			mainClass: 'my-mfp-zoom-in'
-		});
+
+			magnificPopup  = $('.w3_play_icon,.w3_play_icon1,.w3_play_icon2').magnificPopup({
+				type: 'inline',
+				fixedContentPos: false,
+				fixedBgPos: true,
+				overflowY: 'auto',
+				closeBtnInside: true,
+				preloader: false,
+				midClick: true,
+				removalDelay: 300,
+				mainClass: 'my-mfp-zoom-in'
+			});
 																		
 		});
 	</script>
