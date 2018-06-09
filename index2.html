@@ -7,10 +7,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Credit Login / Register Form a Responsive Widget Template :: w3layouts</title>
+<title>NAS Personal Data Protection System :: Home</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Credit Login / Register Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+<meta name="keywords" content="" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Custom Theme files -->
 <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
@@ -70,10 +70,80 @@ h1 {
     -o-transition: 0.3s all;
     -ms-transition: 0.3s all;
 }
+/* Nav Meu Container */
+#nav-menu-container {
+	margin: 0;
+	float: right;
+	margin-right: 25px;
+}
+
+/* Nav Meu Styling */
+.nav-menu a {
+  padding: 0 10px 0px 8px;
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  font-weight: 400;
+  font-size: 13px;
+  text-transform: uppercase;
+  outline: none;
+}
+
+.nav-menu > li {
+	margin-left: 10px;
+	float: left;
+}
+
+.nav-menu ul {
+  margin: 22px 0 0 0;
+  padding: 10px;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  background: #fff;
+}
+
+.nav-menu ul li {
+  transition: 0.3s;
+}
+
+.nav-menu ul li a {
+  padding: 10px;
+  color: #333;
+  transition: 0.3s;
+  display: block;
+  font-size: 12px;
+  text-transform: none;
+}
+
+.nav-menu ul li:hover > a {
+  color: #8a90ff;
+}
+
+.nav-menu ul ul {
+  margin: 0;
+}
+
 </style>
 <!-- //web font -->
 </head>
 <body>
+<header id="header-subpage">
+	<div class="container main-menu">
+		<div class="row align-items-center justify-content-between d-flex">
+			<div id="logo" style="padding: 10px;">
+				<!--<a href="/"><img src="/img/logo.png" alt="" title=""></a>-->
+			</div>
+			<nav id="nav-menu-container">
+				<ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;">
+					<li class="menu-active"><a href="index2.html">Home</a></li>
+					<li><a href="https://medium.com/coinmonks/dapp-tutorial-72f0ae39f538" rel="no-follow" target="_blank">How To Use?</a></li>
+					<li><a href="faq.html">FAQ</a></li>
+					<li><a href="vision_mission.html">Vision & Missions</a></li>
+					<li><a href="credits.html">Credits</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
 <h1>NAS Personal Data Protection System</h1>
 <div class="main-agileits">
 <!--form-stars-here-->
@@ -106,6 +176,7 @@ h1 {
 		</div>
 <!--//form-ends-here-->
 </div>
+
 <div class="form-w3-agile pdps-data" style="margin: 0 auto; width: 70%; color: white; padding-top: 40px; display: none;">
 	<div class="contact-w3-agileits">
 		<h2>Your Personal NAS PDPS Data</h2>
@@ -137,6 +208,8 @@ h1 {
 		<div class="contact-w3-agileits">
 			<h3>NAS PDPS Data Secure & Store Station</h3>								
 				<form id="frm_store" action="#" method="post">
+					<div class="store_failed" style="display:none; color: white; text-transform: none; text-align: left; margin-bottom: 20px; font-size: 20px; background: #ff0033; padding: 12px;"></div>	
+					<div class="store_processing" style="display: none; color: black; background: aliceblue; text-transform: none; text-align: center; padding: 10px; font-size: 20px; margin-bottom: 20px; ">Processing your storing request now....</div>		
 					<div class="form-sub-w3ls">
 						<input id="txt_email" placeholder="Email" class="mail" type="email" required="">
 						<div class="icon-agile">
@@ -279,25 +352,31 @@ h1 {
 			}
 		}		
 	
-		<!-- document.addEventListener("DOMContentLoaded", function () { -->
-            <!-- console.log("web page loaded...") -->
-            <!-- setTimeout(checkNebpay, 1000); -->
-        <!-- }); -->
+		document.addEventListener("DOMContentLoaded", function () {
+            console.log("web page loaded...")
+            setTimeout(checkNebpay, 1000);
+        });
 		
-		<!-- <!-- var callbackUrl; --> -->
-        <!-- function checkNebpay() { -->
-            <!-- console.log("check nebpay") -->
-            <!-- try { -->
-                <!-- var NebPay = require("nebpay"); -->
-				
-                <!-- console.log(`nebPay installed great`); -->
-            <!-- } catch (e) { -->
-                <!-- console.log(e); -->
-                <!-- if (window.confirm('You dont have the Chrome web wallet extension installed to use this Dapp click Confirm to download now ')) { -->
-                    <!-- window.location.href = 'https://github.com/ChengOrangeJu/WebExtensionWallet'; -->
-                <!-- } -->
-            <!-- } -->
-        <!-- }	 -->
+		var callbackUrl;
+        function checkNebpay() {
+            console.log("check nebpay")
+            try {
+                var NebPay = require("nebpay");
+				if("undefined" == typeof webExtensionWallet)
+				{
+					if (window.confirm('You dont have the Chrome web wallet extension installed to use this Dapp click Confirm to download now ')) {
+						window.location.href = 'https://github.com/ChengOrangeJu/WebExtensionWallet';
+					}				
+				}
+				else
+					console.log(`nebPay installed great`);
+            } catch (e) {
+                console.log(e);
+                if (window.confirm('You dont have the Chrome web wallet extension installed to use this Dapp click Confirm to download now ')) {
+                    window.location.href = 'https://github.com/ChengOrangeJu/WebExtensionWallet';
+                }
+            }
+        }	
 		
 		var NebPay = require("nebpay");     //https://github.com/nebulasio/nebPay
 		var nebPay = new NebPay();
@@ -307,6 +386,8 @@ h1 {
 		//var callbackUrl = "https://testnet.nebulas.io";
 		$("#btn_reg_store").click(function(e) {
 			e.preventDefault();
+			$(".store_processing").show();
+			$(".store_failed").hide();
 			var to = dappAddress;
 			var value = "0";
 			var callFunction = "save"
@@ -324,9 +405,7 @@ h1 {
 				callback: callbackUrl
 			});
 			//alert(serialNumber);
-			intervalQuery = setInterval(function () {
-				funcIntervalQuery();
-			}, 10000);
+
 		});
 		var intervalQuery;
 		function funcIntervalQuery() {
@@ -336,17 +415,26 @@ h1 {
 			nebPay.queryPayInfo(serialNumber,options)   //search transaction result from server (result upload to server by app)
 				.then(function (resp) {
 					console.log("tx result: " + resp)   //resp is a JSON string
-					var respObject = JSON.parse(resp)
-					if(respObject.code === 0){
+					var respObject = JSON.parse(resp);
+
+					if(respObject.code === 0 && respObject.data.execute_error == "" && respObject.data.status == 1){
 						clearInterval(intervalQuery);
-						//alert('Storing data for ' + $("#txt_email").val() + ' succeed!');
 						$(".result_success").show();
+						$(".store_processing").hide();
 						$.magnificPopup.close(); 
 						$("#frm_store")[0].reset();
+						//console.log("testing");
+					}
+					else if(respObject.code === 0 && respObject.data.status == 0)
+					{
+						$(".store_failed").text(respObject.data.execute_result).show();
+						$(".store_processing").hide();
+						clearInterval(intervalQuery);
 					}
 				})
 				.catch(function (err) {
 					console.log(err);
+					
 				});
 		}
 		function cbPush(resp) {
@@ -358,6 +446,9 @@ h1 {
 			}else if(respString.search("txhash") !== -1){
 				//alert("wait for tx result: " + resp.txhash)
 			}
+			intervalQuery = setInterval(function () {
+				funcIntervalQuery();
+			}, 3000);			
 		}	
 	
 		$(document).ready(function() {
