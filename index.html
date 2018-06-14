@@ -42,6 +42,8 @@ h1 {
     border-radius: 10px;
     margin: 35px auto;
 	text-transform: none;
+	font-size: 22px;
+    padding: 10px;
 }
 
 #btn_reg_store {
@@ -206,7 +208,7 @@ h1 {
 <div id="small-dialog1" class="mfp-hide">
 	<div class="contact-form1">
 		<div class="contact-w3-agileits">
-			<h3>NAS PDPS Data Secure & Store Station</h3>								
+			<h3 style="font-size: 18px;">NAS PDPS Data Secure & Store Station</h3>								
 				<form id="frm_store" action="#" method="post">
 					<div class="store_failed" style="display:none; color: white; text-transform: none; text-align: left; margin-bottom: 20px; font-size: 20px; background: #ff0033; padding: 12px;"></div>	
 					<div class="store_processing" style="display: none; color: black; background: aliceblue; text-transform: none; text-align: center; padding: 10px; font-size: 20px; margin-bottom: 20px; ">Processing your storing request now....</div>		
@@ -274,13 +276,17 @@ h1 {
 	<script>
 		"use strict";
 		var magnificPopup;
-		var dappAddress = "n1jDzqzQRDfoSUNAqwNXgSvrWAJptzEh3dX";
+		// Testnet contract address
+		//var dappAddress = "n1jDzqzQRDfoSUNAqwNXgSvrWAJptzEh3dX";
+		// Mainnet contract address
+		var dappAddress = "n1fthL2Bu6oX3636Noz1kayZ7DzQpSHQ3RC";
 		//here we use neb.js to call the "get" function to search from the Dictionary
 		var nebulas = require("nebulas"),
 			Account = nebulas.Account,
 			neb = new nebulas.Neb();
-		neb.setRequest(new nebulas.HttpRequest("https://testnet.nebulas.io"));		
-
+		//neb.setRequest(new nebulas.HttpRequest("https://testnet.nebulas.io"));		
+		neb.setRequest(new nebulas.HttpRequest("https://mainnet.nebulas.io"));		
+		
 		$("#btn_retrieve").click(function(e){
 			// $("#search_value").val() 搜索框内的值
 			e.preventDefault();
@@ -381,8 +387,8 @@ h1 {
 		var NebPay = require("nebpay");     //https://github.com/nebulasio/nebPay
 		var nebPay = new NebPay();
 		var serialNumber;
-		//var callbackUrl = NebPay.config.mainnetUrl;   //如果合约在主网,则使用这个
-		var callbackUrl = NebPay.config.testnetUrl; 
+		var callbackUrl = NebPay.config.mainnetUrl;   //如果合约在主网,则使用这个
+		//var callbackUrl = NebPay.config.testnetUrl; 
 		//var callbackUrl = "https://testnet.nebulas.io";
 		$("#btn_reg_store").click(function(e) {
 			e.preventDefault();
