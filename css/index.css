@@ -1,0 +1,47 @@
+BODY{
+	padding:10px;
+	text-align:center;
+}
+
+#sudoku-table{
+	 margin: 0 auto; 
+	 border-top:1px solid grey;
+	 border-left:1px solid grey;
+}
+
+#sudoku-table td{
+	font-family:verdana;
+	font-size:24px;
+	border-right: 1px solid grey;
+	border-bottom: 1px solid grey;
+	width:50px;
+	height:50px;
+	text-align:center;
+}
+
+#sudoku-timer{
+	font-family:verdana;
+	font-weight:bold;
+}
+
+.sudoku-table-div{
+	width:100%;
+	text-align:center;
+	
+}
+
+.button-design{
+	font-family:verdana;
+	font-size:24px;
+	width:60px;
+	height:60px;
+	padding:10px;
+	text-align:center;
+}
+
+.button-design-long{
+	width:120px;
+	height:60px;
+	padding:10px;
+	text-align:center;
+}
